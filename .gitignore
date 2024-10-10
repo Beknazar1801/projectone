@@ -1,0 +1,48 @@
+# Исключение папки виртуального окружения
+venv/
+env/
+
+# Файлы конфигурации среды
+*.env
+*.local
+
+# База данных
+*.sqlite3
+
+# Файлы миграций
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# Логи и временные файлы
+*.log
+*.pot
+*.pyc
+__pycache__/
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.orig
+
+# Статические файлы, сгенерированные командой collectstatic
+staticfiles/
+static/
+
+# Медиа-файлы (загруженные пользователями)
+media/
+
+# Конфигурации IDE
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Docker
+*.env.docker
+docker-compose.override.yml
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
