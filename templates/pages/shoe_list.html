@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <!-- Подключаем статические файлы, если это не сделано в base.html -->
+    <link rel="stylesheet" href="{% static 'css/tub-buttons.css' %}">
+
+    <div class="category-tabs">
+        <h2>Категории обуви</h2>
+        <div class="tab-buttons">
+            <a href="{% url 'shoe_list' %}?category=M">Мужская обувь</a>
+            <a href="{% url 'shoe_list' %}?category=F">Женская обувь</a>
+            <a href="{% url 'shoe_list' %}?category=U">Унисекс</a>
+        </div>
+    </div>
+
+    <div class="category-tabs">
+        <h2>Бренды</h2>
+        <div class="tab-buttons">
+            {% for brand in brands %}
+                <a href="{% url 'shoe_list' %}?brand={{ brand.id }}">{{ brand.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <h1>Список обуви</h1>
+
+    {% if shoes %}
+        <div class="shoes-grid">
+            {% for shoe in shoes %}
+                <div class="shoe-item">
+                    <h2><a href="{% url 'shoe_detail' shoe.id %}">{{ shoe.name }}</a></h2>
+                    <p>Цена: ₽{{ shoe.price }}</p>
+                    {% if shoe.image %}
+                        <img src="{{ shoe.image.url }}" alt="{{ shoe.name }}">
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Обувь не найдена.</p>
+    {% endif %}
+{% endblock %}

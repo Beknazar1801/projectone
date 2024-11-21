@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="category-tabs">
+        <h2>Коллекция обуви</h2>
+        <div class="tab-buttons">
+            <a href="{% url 'shoe_list' %}?category=M">Мужская обувь</a>
+            <a href="{% url 'shoe_list' %}?category=F">Женская обувь</a>
+            <a href="{% url 'shoe_list' %}?category=U">Унисекс</a>
+        </div>
+    </div>
+    <div class="category-tabs">
+        <h2>Бренды</h2>
+    <div class="tab-buttons">
+        {% for brand in brands %}
+            <a href="{% url 'shoe_list' %}?brand={{ brand.id }}">{{ brand.name }}</a>
+        {% empty %}
+            <p>Бренды не найдены.</p>
+        {% endfor %}
+    </div>
+        </div>
+    </div>
+
+    <!-- Раздел с обувью -->
+    <div class="layout_padding collection_section">
+        <div class="container">
+            <h1>Все обувь</h1>
+            
+            <div class="shoe-card-container">
+                {% for shoe in shoes %}
+                    <div class="shoe-card">
+                        <div class="shoe-image">
+                            <img src="{{ shoe.image.url }}" alt="{{ shoe.name }}">
+                        </div>
+                        <div class="shoe-info">
+                            <p class="shoe-name">{{ shoe.name }}</p>
+                            <p class="shoe-price">₽{{ shoe.price }}</p>
+                            <a href="{% url 'shoe_detail' shoe.id %}" class="btn-detail">Подробнее</a>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>Обувь пока недоступна.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+        
+{% endblock %}

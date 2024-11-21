@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="collection_text">Shoes</div>
+<div class="collection_section layout_padding">
+    <div class="container">
+        <h1 class="new_text"><strong>New Arrivals Products</strong></h1>
+        <p class="consectetur_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+    </div>
+</div>
+
+<div class="layout_padding gallery_section">
+    <div class="container">
+        <h2>Случайные товары</h2>
+        <div class="shoes-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
+            {% for shoe in shoes_list %}
+            <div class="shoe-item" style="flex-basis: 30%; margin-bottom: 20px; border: 1px solid #ddd; padding: 10px; text-align: center; border-radius: 5px;">
+                <div class="shoes-img">
+                    <img src="{{ shoe.image.url }}" alt="{{ shoe.name }}" style="width: 100%; height: auto;">
+                </div>
+                <p>{{ shoe.name }}</p>
+                <p>${{ shoe.price }}</p>
+                <a href="{% url 'shoe_detail' shoe.id %}" style="text-decoration: none;">
+                    <button class="buy_text" style="padding: 10px 20px; background-color: #f12a47; color: #fff; border: none; cursor: pointer; border-radius: 5px;">Buy Now</button>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<div class="section_footer">
+    <div class="container">
+        <div class="mail_section">
+            <div class="row">
+                <div class="col-sm-6 col-lg-2">
+                    <div><a href="#"><img src="{% static 'images/footer-logo.png' %}"></a></div>
+                </div>
+                <div class="col-sm-6 col-lg-2">
+                    <div class="footer-logo"><img src="{% static 'images/phone-icon.png' %}"><span class="map_text">(71) 1234567890</span></div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="footer-logo"><img src="{% static 'images/email-icon.png' %}"><span class="map_text">Demo@gmail.com</span></div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="social_icon">
+                        <ul>
+                            <li><a href="#"><img src="{% static 'images/fb-icon.png' %}"></a></li>
+                            <li><a href="#"><img src="{% static 'images/twitter-icon.png' %}"></a></li>
+                            <li><a href="#"><img src="{% static 'images/in-icon.png' %}"></a></li>
+                            <li><a href="#"><img src="{% static 'images/google-icon.png' %}"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </div>
+
+        <div class="footer_section_2">
+            <div class="row">
+                <div class="col-sm-4 col-lg-2">
+                    <p class="dummy_text"> ipsum dolor sit amet, consectetur ipsum dolor sit amet, consectetur  ipsum dolor sit amet,</p>
+                </div>
+                <div class="col-sm-4 col-lg-2">
+                    <h2 class="shop_text">Address </h2>
+                    <div class="image-icon"><img src="{% static 'images/map-icon.png' %}"><span class="pet_text">No 40 Baria Street 15/2 New York City, NY, United States.</span></div>
+                </div>
+                <div class="col-sm-4 col-md-6 col-lg-3">
+                    <h2 class="shop_text">Our Company </h2>
+                    <div class="delivery_text">
+                        <ul>
+                            <li>Delivery</li>
+                            <li>Legal Notice</li>
+                            <li>About us</li>
+                            <li>Secure payment</li>
+                            <li>Contact us</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <h2 class="adderess_text">Products</h2>
+                    <div class="delivery_text">
+                        <ul>
+                            <li>Prices drop</li>
+                            <li>New products</li>
+                            <li>Best sales</li>
+                            <li>Contact us</li>
+                            <li>Sitemap</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-2">
+                    <h2 class="adderess_text">Newsletter</h2>
+                    <div class="form-group">
+                        <input type="text" class="enter_email" placeholder="Enter Your email" name="Name">
+                    </div>
+                    <button class="subscribr_bt">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

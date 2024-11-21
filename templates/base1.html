@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Магазин обуви</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Ссылка на файл CSS -->
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container">
+            <h1>Магазин обуви</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">Каталог</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Добро пожаловать в наш магазин</h2>
+                <p>Здесь вы найдете лучшие модели обуви для любого сезона.</p>
+            </div>
+        </section>
+
+        <!-- Секция товаров -->
+        <section class="products">
+            <div class="container">
+                <h2>Популярные товары</h2>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <img src="images/shoe1.jpg" alt="Обувь 1">
+                        <h3>Кроссовки</h3>
+                        <p>Описание товара</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/shoe2.jpg" alt="Обувь 2">
+                        <h3>Ботинки</h3>
+                        <p>Описание товара</p>
+                        <button>Подробнее</button>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/shoe3.jpg" alt="Обувь 3">
+                        <h3>Туфли</h3>
+                        <p>Описание товара</p>
+                        <button>Подробнее</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Магазин обуви. Все права защищены.</p>
+            <ul>
+                <li><a href="#">Политика конфиденциальности</a></li>
+                <li><a href="#">Условия использования</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

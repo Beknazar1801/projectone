@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Основной контент страницы -->
+<div class="header_section">
+   <div class="container">
+      <div class="row">
+         <div class="user-info">
+            {% if user.is_authenticated %}
+               <p>Вы вошли как <a href="{% url 'profile' %}">{{ user.username }}</a> | <a href="{% url 'logout' %}">Выйти</a></p>
+            {% else %}
+               <p><a href="{% url 'login' %}">Вход</a></p>
+            {% endif %}
+         </div>
+
+         <div class="category-tabs">
+            <h2>Коллекция обуви</h2>
+            <div class="tab-buttons">
+                <a href="{% url 'shoe_list' %}?category=M">Мужская обувь</a>
+                <a href="{% url 'shoe_list' %}?category=F">Женская обувь</a>
+                <a href="{% url 'shoe_list' %}?category=U">Унисекс</a>
+            </div>
+        </div>
+        
+        <div class="category-tabs">
+            <h2>Бренды</h2>
+            <div class="tab-buttons">
+                {% for brand in brands %}
+                    <a href="{% url 'shoe_list' %}?brand={{ brand.id }}">{{ brand.name }}</a>
+                {% empty %}
+                    <p>Бренды не найдены.</p>
+                {% endfor %}
+            </div>
+        </div>
+      </div>
+   </div>
+</div>
+
+<div class="banner_section">
+   <div class="container-fluid">
+      <section class="slide-wrapper">
+         <div class="container-fluid">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+               <!-- Indicators -->
+               <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+                  <li data-target="#myCarousel" data-slide-to="3"></li>
+               </ol>
+               <!-- Wrapper for slides -->
+               <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <div class="row">
+                        <div class="col-sm-2 padding_0">
+                           <p class="mens_taital">Men Shoes</p>
+                           <div class="page_no">0/2</div>
+                           <p class="mens_taital_2">Men Shoes</p>
+                        </div>
+                        <div class="col-sm-5">
+                           <div class="banner_taital">
+                              <h1 class="banner_text">New Running Shoes</h1>
+                              <h1 class="mens_text"><strong>Men's Like Plex</strong></h1>
+                              <p class="lorem_text">ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <button class="buy_bt">Buy Now</button>
+                              <button class="more_bt">See More</button>
+                           </div>
+                        </div>
+                        <div class="col-sm-5">
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Добавьте другие элементы карусели аналогично -->
+               </div>
+            </div>
+         </div>
+      </section>
+   </div>
+</div>
+
+<div class="layout_padding collection_section">
+    <div class="container">
+        <h1>Все обувь</h1>
+        
+        <div class="shoe-card-container">
+            {% for shoe in shoes %}
+                <div class="shoe-card">
+                    <div class="shoe-image">
+                        <img src="{{ shoe.image.url }}" alt="{{ shoe.name }}">
+                    </div>
+                    <div class="shoe-info">
+                        <p class="shoe-name">{{ shoe.name }}</p>
+                        <p class="shoe-price">₽{{ shoe.price }}</p>
+                        <a href="{% url 'shoe_detail' shoe.id %}" class="btn-detail">Подробнее</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

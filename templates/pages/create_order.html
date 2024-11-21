@@ -1,0 +1,16 @@
+
+<h1>Подтверждение заказа</h1>
+<p>Вы хотите заказать: {{ product.name }}</p>
+<p>Цена: {{ product.price }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    
+   
+
+    <!-- Поле для ввода адреса доставки -->
+    <label for="address">Адрес доставки:</label>
+    <input type="text" name="address" id="address" placeholder="Введите адрес доставки" required>
+    
+    <button type="submit" class="btn btn-success">Подтвердить заказ</button>
+</form>

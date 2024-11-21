@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="delivery-info">
+    <h2>Информация о доставке</h2>
+    <p>Мы предлагаем быструю и удобную доставку ваших заказов. Варианты доставки включают:</p>
+
+    <h3>Стандартная доставка</h3>
+    <p>Занимает 3-5 рабочих дней с момента оформления заказа. Стоимость рассчитывается в зависимости от региона.</p>
+
+    <h3>Экспресс-доставка</h3>
+    <p>Для срочных заказов доступна экспресс-доставка в течение 1-2 рабочих дней. Применяется дополнительная плата.</p>
+
+    <h3>Условия доставки</h3>
+    <ul>
+        <li>Доставка осуществляется по всей территории страны.</li>
+        <li>Бесплатная доставка для заказов от 5000 ₽.</li>
+        <li>Все заказы обрабатываются в течение 1-2 рабочих дней после подтверждения.</li>
+    </ul>
+
+    <p>Для дополнительной информации, пожалуйста, обращайтесь в нашу <a href="mailto:support@company.com">службу поддержки</a>.</p>
+</div>
+
+<style>
+/* Стили для блока информации о доставке */
+.delivery-info {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Заголовок раздела */
+.delivery-info h2 {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Подзаголовки */
+.delivery-info h3 {
+    font-size: 1.5em;
+    color: #f12a47; /* Красный цвет */
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Основной текст */
+.delivery-info p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Список условий доставки */
+.delivery-info ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.delivery-info ul li {
+    margin-bottom: 10px;
+}
+
+/* Ссылки */
+.delivery-info a {
+    color: #f12a47;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.delivery-info a:hover {
+    color: #d01f38; /* Тёмно-красный цвет при наведении */
+    text-decoration: underline;
+}
+</style>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="order-success-container" style="text-align: center; margin-top: 50px;">
+    <h1>Спасибо за ваш заказ!</h1>
+    <p>Ваш заказ был успешно оформлен и будет обработан в ближайшее время.</p>
+    <p>Мы отправим уведомление на вашу электронную почту после подтверждения заказа.</p>
+    <a href="{% url 'home' %}" class="btn btn-primary" style="margin-top: 20px;">Вернуться на главную страницу</a>
+</div>
+{% endblock %}

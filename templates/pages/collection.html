@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="collection_text">Кроссовки</div>
+<div class="layout_padding collection_section">
+    <div class="container">
+        <h1 class="new_text"><strong>Кроссовки</strong></h1>
+        <p class="consectetur_text">Мы стремимся предложить вам самые лучшие модели обуви, созданные с любовью к комфорту и стилю. Наслаждайтесь покупками!</p>
+        <div class="collection_section_2" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+            {% for shoes_list in shoes_lists %}
+            <div class="shoe-item">
+                {% if shoes_list.image %}
+                    <img src="{{ shoes_list.image.url }}" alt="{{ shoes_list.name }}" style="width: 100%; height: auto; border-radius: 10px;">
+                {% else %}
+                    <img src="{% static 'images/default-shoe.jpg' %}" alt="Default Shoe" style="width: 100%; height: auto; border-radius: 10px;">
+                {% endif %}
+                <p>{{ shoes_list.name }}</p>
+                <p>${{ shoes_list.price }}</p>
+                <a href="{% url 'shoe_detail' shoes_list.id %}" class="btn btn-primary">Обувь</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

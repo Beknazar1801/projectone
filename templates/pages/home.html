@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+
+    <!-- Раздел с обувью -->
+    <div class="layout_padding collection_section">
+        <div class="container">
+            <h1>Все обувь</h1>
+            
+            <div class="shoe-card-container">
+                {% for shoe in shoes %}
+                    <div class="shoe-card">
+                        <div class="shoe-image">
+                            <img src="{{ shoe.image.url }}" alt="{{ shoe.name }}">
+                        </div>
+                        <div class="shoe-info">
+                            <p class="shoe-name">{{ shoe.name }}</p>
+                            <p class="shoe-price">₽{{ shoe.price }}</p>
+                            <a href="{% url 'shoe_detail' shoe.id %}" class="btn-detail">Подробнее</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+        
+{% endblock %}
